@@ -1,0 +1,25 @@
+* sudo docker network create shared_network
+
+* JAVA APP :
+1. sudo docker build -t pingpong-java .
+2. sudo docker run -d --name java_container --network shared_network --network-alias javaapp -p 8001:8001 pingpong-java
+
+
+* JS APP :
+1. npm init  --> o make a package.json file
+2. sudo docker build -t pingpong-js .
+3. sudo docker run -d --name js_container --network shared_network --network-alias jsapp -p 8003:8003 pingpong-js
+
+
+* Python APP :
+1. sudo docker build -t pingpong-python .
+2. sudo docker run -d --name py_container --network shared_network --network-alias pythonapp -p 8002:8002 pingpong-python
+
+
+* nginx :
+1. docker build -t my-nginx .
+2. sudo docker run -d --name nginx_container --network shared_network -v /home/bahareh/ccpDocker:/shared  -p 8080:8080 my-nginx
+
+
+
+
